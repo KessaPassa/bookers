@@ -21,14 +21,15 @@ class BooksController < ApplicationController
     if @book.save
       flash[:notice] = 'Book was successfully created.' # rubocop:todo Rails/I18nLocaleTexts
       redirect_to book_path(@book.id)
-    else
-      render :index
     end
+
+    @books = Book.all
+    render :index
   end
 
   def update
     @book = Book.find(params[:id])
-    if @book.update
+    if @book.update(book_params)
       flash[:notice] = 'Book was successfully updated.' # rubocop:todo Rails/I18nLocaleTexts
       redirect_to book_path(@book.id)
     else
