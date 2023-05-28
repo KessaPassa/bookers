@@ -25,6 +25,9 @@ Security:
 Style/Documentation:
   Enabled: false
 
+Rails/NotNullColumn:
+  Enabled: false
+
 Metrics/MethodLength:
   Max: 15
 
@@ -35,3 +38,7 @@ Metrics/BlockLength:
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'db/migrate/*'

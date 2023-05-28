@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Controller < ApplicationController
+class HomesController < ApplicationController
   def top; end
 end

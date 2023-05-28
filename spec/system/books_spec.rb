@@ -21,6 +21,30 @@ describe '投稿のテスト' do
     end
   end
 
+  describe 'titleを空白で投稿した場合に画面にエラーメッセージが表示されているか' do
+    before do
+      visit books_path
+      fill_in 'book[title]', with: ''
+    end
+
+    it 'エラーメッセージは正しく表示されるか' do
+      find("input[name='commit']").click
+      expect(page).to have_content "can't be blank"
+    end
+  end
+
+  describe 'bodyを空白で投稿した場合に画面にエラーメッセージが表示されているか' do
+    before do
+      visit books_path
+      fill_in 'book[body]', with: ''
+    end
+
+    it 'エラーメッセージは正しく表示されるか' do
+      find("input[name='commit']").click
+      expect(page).to have_content "can't be blank"
+    end
+  end
+
   describe '一覧画面のテスト' do
     before do
       visit books_path
